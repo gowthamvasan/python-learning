@@ -1,0 +1,91 @@
+List of Multiples
+    Create a function that takes two numbers as arguments (num, length) and returns a list of
+    multiples of num until the list length reaches length.
+    Examples
+    list_of_multiples(7, 5) ➞ [7, 14, 21, 28, 35]
+    list_of_multiples(12, 10) ➞ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+    list_of_multiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
+    Notes
+    Notice that num is also included in the returned list.
+################################################################################################################################################
+
+################################################################################################################################################
+Sum of Missing Numbers
+    Create a function that returns the sum of missing numbers from the given list.
+    Examples
+    sum_missing_numbers([4, 3, 8, 1, 2]) ➞ 18
+    # 5 + 6 + 7 = 18
+    sum_missing_numbers([17, 16, 15, 10, 11, 12]) ➞ 27
+    # 13 + 14 = 27
+    sum_missing_numbers([1, 2, 3, 4, 5]) ➞ 0
+    # No Missing Numbers (i.e. all numbers in [1, 5] are present in the list)
+    Notes
+################################################################################################################################################
+
+################################################################################################################################################
+Two Distinct Elements
+In each input list, every number repeats at least once, except for two. Write a function that returns the two unique numbers.
+
+Examples
+return_unique([1, 9, 8, 8, 7, 6, 1, 6]) ➞ [9, 7]
+
+return_unique([5, 5, 2, 4, 4, 4, 9, 9, 9, 1]) ➞ [2, 1]
+
+return_unique([9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8]) ➞ [5, 6]
+Notes
+Keep the same ordering in the output.
+################################################################################################################################################
+
+################################################################################################################################################
+Vowel Families
+Write a function that selects all words that have all the same vowels (in any order and/or number) as the first word, including the first word.
+
+Examples
+same_vowel_group(["toe", "ocelot", "maniac"]) ➞ ["toe", "ocelot"]
+same_vowel_group(["many", "carriage", "emit", "apricot", "animal"]) ➞ ["many"]
+same_vowel_group(["hoops", "chuff", "bot", "bottom"]) ➞ ["hoops", "bot", "bottom"]
+Notes
+Words will contain only lowercase letters, and may contain whitespaces.
+Frequency does not matter (e.g. if the first word is "loopy", then you can include words with any number of o's, so long as they only contain o's, and not any other vowels).
+################################################################################################################################################
+
+################################################################################################################################################
+''We have a nested object, we would like a function that you pass in the object and a key and
+get back the value. How this is implemented is up to you.
+Example Inputs
+object = {“a”:{“b”:{“c”:”d”}}}
+key = a/b/c
+object = {“x”:{“y”:{“z”:”a”}}}
+key = x/y/z
+value = a
+Hints:
+We would like to see some tests. A quick read to help you along the way
+We would expect it in any other language apart from elixir.
+A quick read to help you along the way
+################################################################################################################################################
+Vowel to Vowel Links
+Given a sentence as txt, return True if any two adjacent words have this property: One word ends with a vowel, while the word immediately after begins with a vowel (a e i o u).
+ 
+Examples
+vowel_links("a very large appliance") ➞ True
+ 
+vowel_links("go to edabit") ➞ True
+ 
+vowel_links("an open fire") ➞ False
+ 
+vowel_links("a sudden applause") ➞ False
+################################################################################################################################################
+algorithms loops strings
+Given two words, overlap them in such a way, morphing the last few letters of the first word with the first few letters of the second word. Return the shortest overlapped word possible.
+Examples
+overlap("sweden", "denmark") ➞ "swedenmark"
+ 
+overlap("edabit", "iterate") ➞ "edabiterate"
+ 
+overlap("honey", "milk") ➞ "honeymilk"
+
+Github 
+Last 6 months log 
+username email datetime filechanged commitid
+Save as csv file 
+move to s3 bucket

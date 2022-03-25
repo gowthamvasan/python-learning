@@ -5,47 +5,71 @@ import pandas as pd
 import requests
 import time
 
+token_personal = "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"
+token_office = "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"
 org='milvik'
 #project_list = ['infra-automation','aws-infra-templates']
-project_list = ['milvik/infra-automation']
-g = Github("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")
-# repo = g.get_repo('milvik/infra-automation')
-# print(dir(repo))
-print(g.get_organization('milvik').get_repos('aws-infra-templates'))
+# project_list = ['milvik/bima-infra-jenkins']
+project_list = ['gowthamvasan/python-learning']
 
-'''
 def extract_project_info():
-    df_project = pd.DataFrame()
-    for repo in project_list:
-        g = Github("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")
-        output=g.get_repo(repo)
-        
-        print(output)
-        PRs = output.get_pulls(state='all')
-        all_commits = output.get_commits()
-        # print(help(output.get_commits()))
-        print(all_commits)
-        print(all_commits.totalCount)
-        # import pdb;pdb.set_trace()
+    df_commits = pd.DataFrame()
+    for project in project_list:
+        print(project)
+        g = Github(token_personal)
+        repo=g.get_repo(project)
+        all_commits = repo.get_commits()
+        counter=0
         for commit in all_commits:
-            pass
-        # print(dir(PRs))
-        # print(output.id)
-        df_project = df_project.append({
-            'Project_ID': output.id,
-            'Name': output.name,
-            'Full_name': output.full_name,
-            'Language': output.language,
-            'Forks': output.forks_count,
-            'Stars': output.stargazers_count,
-            'Watchers': output.subscribers_count,
-            'PRs_count': PRs.totalCount
-        }, ignore_index=True)
-        # print(df_project)
-        # df_project.to_csv('project_dataset.csv', sep=',', encoding='utf-8', index=True)
-        df_project.to_excel('project_dataset.xlsx', encoding='utf-8', index=True)
-        # print(dir(output))
-    import pdb;pdb.set_trace()
+            while True:
+                try:
+                    counter += 1
+                    print(f"Loop counter {counter}")
+                    # print(g.rate_limiting)
+                    df_commits = df_commits.append({
+                        # 'commit_sha': commit.sha,
+                        # 'committer_username': commit.author.login if commit.author is not None else 'None',
+                        # 'committer_name': commit.author.name if commit.author is not None else 'None',
+                        # 'committer_email': commit.author.email if commit.author is not None else 'None',
+                        # 'commit_date': commit.author.created_at if commit.author is not None else 'None',
+                        'commit_sha': commit.sha,
+                        'committer_username': commit.author.login,
+                        'committer_name': commit.author.name,
+                        'committer_email': commit.author.email,
+                        'commit_date': commit.author.created_at,
+                    }, ignore_index=True)
+                except RateLimitExceededException as e:
+                    print(e.status)
+                    print('Rate limit exceeded')
+                    time.sleep(300)
+                    continue
+                except BadCredentialsException as e:
+                    print(e.status)
+                    print('Bad credentials exception')
+                    break
+                except UnknownObjectException as e:
+                    print(e.status)
+                    print('Unknown object exception')
+                    break
+                except GithubException as e:
+                    print(e.status)
+                    print('General exception')
+                    break
+                except requests.exceptions.ConnectionError as e:
+                    print('Retries limit exceeded')
+                    print(str(e))
+                    time.sleep(10)
+                    continue
+                except requests.exceptions.Timeout as e:
+                    print(str(e))
+                    print('Time out exception')
+                    time.sleep(10)
+                    continue
+                break
+    print(df_commits)
+    df_commits.to_csv('python-learning/pygithub_project/project_dataset.csv', sep=',', na_rep='None',quotechar='\'',encoding='utf-8', index=False)
+        # df_project.to_excel('project_dataset.xlsx', encoding='utf-8', index=True)
+    # import pdb;pdb.set_trace()
 extract_project_info()
-'''
+
 
