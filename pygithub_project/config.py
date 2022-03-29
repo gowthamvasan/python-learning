@@ -1,4 +1,4 @@
-#!/usr/bin/python
+# !/usr/bin/python
 from configparser import ConfigParser
 
 def config(filename='/Users/user/Documents/Git_repos/Personal/python-learning/pygithub_project/database.ini', section='postgresql'):
@@ -17,3 +17,9 @@ def config(filename='/Users/user/Documents/Git_repos/Personal/python-learning/py
         raise Exception('Section {0} not found in the {1} file'.format(section, filename))
 
     return db
+
+# db_details={
+# "host": "18.139.45.99",
+# "database" : "commit_info",
+# "user" : "gowtham",
+# "password" : "password" }

@@ -1,0 +1,5 @@
+Normal python file
+Normal html file
+
+python --> dict create
+html --> table populate without major framework

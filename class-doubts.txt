@@ -1,0 +1,2 @@
+Django:
+1) Why do we need "python manage.py makemigrations" "python manage.py migrate" these commands ?

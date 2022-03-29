@@ -6,7 +6,7 @@ csv_file='/Users/user/Documents/Git_repos/Personal/python-learning/pygithub_proj
 def insert_commit_status(dataset):
     """ Connect to the PostgreSQL database server """
     conn = None
-    command = """ INSERT INTO commit_information VALUES(%s,%s,%s,%s,%s); """
+    command = """ INSERT INTO commit_information VALUES(%s,%s,%s,%s,%s,%s); """
     try:
         # read connection parameters
         params = config()

@@ -6,18 +6,25 @@ def connect():
     conn = None
     commands = (
         """
-        INSERT INTO commit_information (commit_id, username, author_name, email, created_on)
-        VALUES('30e2c363d974c7e0d994aee3b4addd0329738uytr','gowthamvasan', 'Giri', 'gowtham@gmail.com','2018-03-30 07:34:27');
+        CREATE TABLE commit_information (
+            commit_id TEXT PRIMARY KEY,
+            username VARCHAR ( 50 ) NOT NULL,
+            author_name VARCHAR ( 50 ) NOT NULL,
+            email VARCHAR ( 255 ) NOT NULL,
+            commitMsg VARCHAR ( 255 ) NOT NULL,
+            created_on TIMESTAMP NOT NULL
+        );
         """,
     )
     try:
         # read connection parameters
         params = config()
         # print(params)
-
         # connect to the PostgreSQL server
         print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
+        
+    
 		
         # create a cursor
         cur = conn.cursor()
