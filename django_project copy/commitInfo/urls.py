@@ -2,7 +2,6 @@ from django.urls import path
 from commitInfo import views
 
 urlpatterns = [
-    path("", views.home, name="home"),
     path("home/", views.home, name="home"),
     #path("test-url/", views.test_url, name="test-url"),
     path("commitinfo/", views.check_db, name="commitInfo"),

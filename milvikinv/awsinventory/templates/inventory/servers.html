@@ -1,36 +1,54 @@
 {% extends "base/index.html" %}
 {% block content %}
 
-<h2>Github Commit information</h2>
+<h2>Milvik AWS Inventory</h2>
 
-<table id="commit_info" class="display" style="width:100%">
+<table id="server_inventory" class="display" style="width:100%">
 <thead>
   <tr>
-    <th>commit_id</th>
-    <th>username</th>
-    <th>author_name</th>
-    <th>email</th>
-    <th>commitmsg</th>
-    <th>created_on</th>
+    <th>Instance_name</th>
+    <th>Instance_id</th>
+    <th>Instance_Type</th>
+    <th>Private_Ip</th>
+    <th>Public_Ip</th>
+    <th>Instance_Role</th>
+    <th>Environment</th>
+    <th>Country</th>
+    <th>Region</th>
+    <th>Security_Groups</th>
+    <th>avail_zone</th>
+    <th>Subnet_Id</th>
+    <th>Vpc_Id</th>
+    <th>Arch_type</th>
+    <th>State</th>
   </tr>
 </thead>
 <tbody>
     {% for i  in res %} 
   <tr>
-    <td>{{i.commit_id}}</td>
-    <td>{{i.username}}</td>
-    <td>{{i.author_name}}</td>
-    <td>{{i.email}}</td>
-    <td>{{i.commitmsg}}</td>
-    <td>{{i.created_on}}</td>
+    <td>{{i.instance_name}}</td>
+    <td>{{i.instance_id}}</td>
+    <td>{{i.instance_type}}</td>
+    <td>{{i.private_ip}}</td>
+    <td>{{i.public_ip}}</td>
+    <td>{{i.instance_role}}</td>
+    <td>{{i.environment}}</td>
+    <td>{{i.country}}</td>
+    <td>{{i.region}}</td>
+    <td>{{i.security_group}}</td>
+    <td>{{i.avail_zone}}</td>
+    <td>{{i.subnet_id}}</td>
+    <td>{{i.vpc_id}}</td>
+    <td>{{i.arch_type}}</td>
+    <td>{{i.state}}</td>
   </tr>
     {% endfor %}
 </tbody>
 </table>
 
-<script>
+<script  type="text/javascript">
     $(document).ready(function () {
-        $('#commit_info').DataTable({
+        $('#server_inventory').DataTable({
             dom: 'Bfrtip',
             buttons: [{
                 extend: 'excel',

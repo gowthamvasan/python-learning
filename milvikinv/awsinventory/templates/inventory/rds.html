@@ -1,28 +1,42 @@
 {% extends "base/index.html" %}
 {% block content %}
 
-<h2>Github Commit information</h2>
+<h2>Milvik AWS Inventory</h2>
 
-<table id="commit_info" class="display" style="width:100%">
+<table id="server_inventory" class="display" style="width:100%">
 <thead>
   <tr>
-    <th>commit_id</th>
-    <th>username</th>
-    <th>author_name</th>
-    <th>email</th>
-    <th>commitmsg</th>
-    <th>created_on</th>
+    <th>DB_name</th>
+    <th>DB_Instance_name</th>
+    <th>DB_Type</th>
+    <th>DB_Storage</th>
+    <th>DB_Engine</th>
+    <th>DB_Engine_Ver</th>
+    <th>Region</th>
+    <th>Environment</th>
+    <th>Country</th>
+    <th>Workload_Type</th>
+    <th>DB_Endpoint</th>
+    <th>DB_Vpc_Id</th>
+    <th>DB_Read_replica</th>
   </tr>
 </thead>
 <tbody>
     {% for i  in res %} 
   <tr>
-    <td>{{i.commit_id}}</td>
-    <td>{{i.username}}</td>
-    <td>{{i.author_name}}</td>
-    <td>{{i.email}}</td>
-    <td>{{i.commitmsg}}</td>
-    <td>{{i.created_on}}</td>
+    <td>{{i.db_name}}</td>
+    <td>{{i.db_instance_name}}</td>
+    <td>{{i.db_type}}</td>
+    <td>{{i.db_storage}}</td>
+    <td>{{i.db_engine}}</td>
+    <td>{{i.db_engine_ver}}</td>
+    <td>{{i.region}}</td>
+    <td>{{i.environment}}</td>
+    <td>{{i.country}}</td>
+    <td>{{i.workload_type}}</td>
+    <td>{{i.db_endpoint}}</td>
+    <td>{{i.db_vpc_id}}</td>
+    <td>{{i.db_read_replica_db}}</td>
   </tr>
     {% endfor %}
 </tbody>
@@ -30,7 +44,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#commit_info').DataTable({
+        $('#server_inventory').DataTable({
             dom: 'Bfrtip',
             buttons: [{
                 extend: 'excel',

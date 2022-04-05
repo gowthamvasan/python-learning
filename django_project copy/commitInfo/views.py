@@ -6,7 +6,7 @@ from commitInfo.models import commitInfo
 from django.http import HttpResponse
 
 def home(request):
-    return render(request,"base/home.html")
+    return HttpResponse("Hello, Django!")
 
 def test_url(request):
     return HttpResponse("Hello, test-page!")
