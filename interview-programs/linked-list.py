@@ -14,7 +14,7 @@ def check_valid(element):
     else:
         return False
 
-while choice < 5: 
+while choice < 5:
     print("Linked List Operations:")
     print("""
     1. Add element 
@@ -32,7 +32,7 @@ while choice < 5:
         
     elif choice == 2:
         print("Existing list: ", country_list)
-        while True:  
+        while True:
             rem_element = input("Enter a valid element to be removed: ")
             status = check_valid(rem_element)
             if status == True:

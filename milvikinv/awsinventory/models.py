@@ -4,7 +4,7 @@ from django.db import connections
 
 # Create your models here.
 
-class servers(models.Model):   
+class Servers(models.Model):   
     instance_name = models.CharField(max_length=255)
     instance_id = models.AutoField(primary_key=True)
     instance_type = models.CharField(max_length=255)
@@ -24,7 +24,7 @@ class servers(models.Model):
     class Meta:
         db_table = "server_inventory"
 
-class db(models.Model):   
+class Rds(models.Model):   
     id = models.AutoField(primary_key=True)
     db_name = models.CharField(max_length=255)
     db_instance_name = models.CharField(max_length=255)
